@@ -5,7 +5,7 @@ import cv2
 import numpy as np
 from cvzone.HandTrackingModule import HandDetector
 
-cap = cv2.VideoCapture(2)
+cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
 cap.set(3, 1280)
 cap.set(4, 720)
 
@@ -34,10 +34,10 @@ class SnakeGameClass:
     def update(self, imgMain, currentHead):
 
         if self.gameOver:
-            cvzone.putTextRect(imgMain, "Game Over", [300, 400],
+            cvzone.putTextRect(imgMain, "Game Over", [350, 400],
                                scale=7, thickness=5, offset=20)
-            cvzone.putTextRect(imgMain, f'Your Score: {self.score}', [300, 550],
-                               scale=7, thickness=5, offset=20)
+            cvzone.putTextRect(imgMain, f'Your Score: {self.score}', [400, 700],
+                               scale=4, thickness=2, offset=10)
         else:
             px, py = self.previousHead
             cx, cy = currentHead
